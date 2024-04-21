@@ -1,0 +1,963 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Cabin", sans-serif;
+  font-style: normal;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+#root {
+  min-height: 100vh;
+  --theme-color: #3c1361;
+  --section-color: #ebd9ff;
+  --light-theme-color: #663a82;
+  --main-background: #a43dff78;
+  --contrast-background: white;
+  --font-color: white;
+}
+
+.navbarMain {
+  position: sticky;
+  top: 0;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: var(--main-background);
+  backdrop-filter: blur(7px);
+  z-index: 100;
+}
+.navbarMain::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2.5%;
+  height: 1px;
+  width: 95%;
+  background: rgba(0, 0, 0, 0.256);
+}
+
+.siteTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--theme-color);
+}
+
+.navbarMain > .buttons {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbarMain > .buttons > a {
+  height: 75%;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--theme-color);
+  border-radius: 10px;
+  box-shadow: 0 0px 7px -2.5px black;
+  font-size: 1.2rem;
+  color: var(--font-color);
+  font-weight: 700;
+}
+.navbarMain > .buttons > a:active {
+  box-shadow: 0 0 0 0 black;
+}
+
+/*Signin CSS*/
+.SigninBackground {
+  padding-top: 40px;
+  /* height: calc(100vh); */
+  /* width: calc(100vw); */
+  /* background-image: linear-gradient(
+    to bottom left,
+    rgb(164, 245, 252),
+    rgb(92, 92, 239)
+  ); */
+  background: var(--main-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.internal {
+  position: relative;
+  height: 70vh;
+  width: 70vw;
+  background: var(--contrast-background);
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 0px 70px -20px rgb(130, 130, 130);
+  margin: 2rem 0;
+}
+
+.signinForm {
+  height: 100%;
+  width: 46%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 2%;
+}
+.header {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0.5rem;
+}
+.socialLinks {
+  height: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+}
+.socialLinks > div {
+  border: 1px solid gray;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.optionTitle {
+  width: 100%;
+  margin: 20px 0 0 0;
+  color: rgb(96, 96, 96);
+  font-size: 1.1rem;
+  text-align: center;
+}
+.userName,
+.password {
+  height: 3em;
+  width: 80%;
+  border-radius: 4px;
+  padding: 7px;
+  border: none;
+  margin: 10px;
+  background: rgb(223, 223, 223);
+  font-size: 1rem;
+  font-weight: 400;
+}
+.submitButton {
+  background: var(--theme-color);
+  height: 50px;
+  width: 10rem;
+  padding: 7px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  color: var(--font-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.signupForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* height: 100%;
+  width: 50%; */
+  /* background: blue; */
+}
+
+.formCover {
+  background: linear-gradient(
+    to top right,
+    var(--theme-color),
+    var(--light-theme-color)
+  );
+  position: absolute;
+
+  height: 100%;
+  width: 50%;
+  top: 0;
+  border-radius: 15px;
+  transition: right linear 0.75s;
+  z-index: 2;
+}
+
+.hiddenFormCover {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 100%;
+  width: 50%;
+  font-size: 5rem;
+  font-weight: 700;
+  top: 0;
+  border-radius: 15px;
+  z-index: 1;
+  transition: opacity linear 0.5s;
+}
+
+.coverInternal {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  color: white;
+  margin: 5%;
+  transition: opacity linear 0.2s;
+}
+
+.textCover {
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.textCover > .text {
+  text-align: center;
+}
+.signupButton {
+  border: 2px solid white;
+  height: 2.4rem;
+  width: 10rem;
+  border-radius: 7px;
+  background: transparent;
+  color: white;
+  font-size: 1.4rem;
+  box-shadow: 0px 0px 7px 0px white;
+  transition: box-shadow linear 0.1;
+}
+.signupButton:active {
+  box-shadow: 0 0 0 0 white;
+}
+
+.mainHeader {
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mainHeader > .shareRoom,
+.rentRoom {
+  position: relative;
+  height: 75%;
+  width: 25%;
+  background: var(--theme-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+.mainHeader > a > img {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  transition: all 0.3s linear;
+}
+.mainHeader > a > span {
+  z-index: 1;
+}
+.mainHeader > .shareRoom {
+  color: var(--font-color);
+}
+.mainHeader > a > img:hover {
+  filter: blur(7px);
+}
+.mainHeader > .rentRoom {
+  color: var(--theme-color);
+}
+
+.mainHeader > ul {
+  height: 75%;
+  width: 25%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+.mainHeader > ul > li > a {
+  font-size: 1.6rem;
+  color: var(--theme-color);
+}
+.mainHeader > ul > .item1 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.mainHeader > ul > .item2 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.mainHeader > ul > .item3 {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+.mainHeader > ul > .item4 {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+.mainFilters {
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--section-color);
+}
+.mainFilters > * {
+  color: var(--font-color);
+}
+.mainFilters > div {
+  height: 66%;
+  width: 27%;
+  background: var(--theme-color);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainFilters > .whenFilter > .dateSelector {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  font-size: 1.3rem;
+}
+/* .whenFilter > .dateSelector > .checkinDate > input,
+.whenFilter > .dateSelector > .checkoutDate > input {
+  border-color: white;
+  background: transparent;
+  color:white;
+} */
+
+.dateSelector > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainFilters > div > .header {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.whereFilter > .searchDestination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.searchDestination > p {
+  font-size: 1.3rem;
+}
+.searchDestination > span > .searchText {
+  font-size: 1.1rem;
+  padding: 3px 5px;
+  margin: 5px;
+  border-radius: 7px;
+  border: none;
+}
+.searchDestination > span > .searchButton {
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 3px 5px;
+  border-radius: 7px;
+  background-color: var(--section-color);
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.profileNavigator > a {
+  font-size: 1.5rem;
+  color: var(--theme-color);
+  background-color: var(--section-color);
+  padding: 0.3rem;
+  border-radius: 9px;
+  box-shadow: 0 0 20px 1px var(--contrast-background);
+}
+.profilenavigator > a:hover {
+  box-shadow: 0 0 0 transparent;
+}
+
+.popularLocations {
+  margin: 2rem;
+}
+.popularLocations > .headerMain {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.locationsContainer {
+  width: 90vw;
+  margin: 0 auto;
+  height: 70vh;
+  display: grid;
+  grid-template-rows: 2fr 2fr;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+  place-items: center;
+}
+.locationMain {
+  position: relative;
+  height: 90%;
+  width: 80%;
+  min-width: 19rem;
+  margin: 2rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  /* transition: all 0.2s linear; */
+  /* width: 20rem; */
+}
+.locationMain:hover {
+  border: 2px solid black;
+}
+.locationMain > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  border-radius: 1rem;
+  transition: all 0.1s linear;
+  /* display:none; */
+}
+.locationMain > img:hover {
+  filter: blur(3px);
+}
+
+.locationMain > .name,
+.locationMain > .state {
+  z-index: 1;
+  color: var(--font-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  border-radius: 20px;
+  /* background-color:rgba(0, 0, 0, 0.251); */
+  text-shadow: 0 0 20px black;
+}
+
+.footerMain {
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-color: var(--theme-color);
+  padding-top: 1rem;
+}
+.footerMain > * {
+  color: var(--font-color);
+}
+.footerMain > div > .title {
+  position: relative;
+  font-size: 2rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.footerMain > div > .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--font-color);
+  border-radius: 100%;
+}
+
+.footerMain > div > ul {
+  padding: 0.5rem 1rem;
+}
+
+.footerMain > div > ul > li {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+.footerLink {
+  color: var(--section-color);
+  text-decoration: underLine;
+}
+.profileCover {
+  background: var(--section-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+.profileMain {
+  min-height: 80%;
+  width: 65%;
+  background: var(--contrast-background);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2rem;
+  box-shadow: 0 0 10px -3px var(--theme-color);
+}
+.profileHeader {
+  font-size: 3rem;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-left: 2rem;
+}
+.profileMain > .userImage {
+  height: 13rem;
+  width: 13rem;
+  border-radius: 50%;
+  border: 2px solid var(--theme-color);
+  display: grid;
+  place-items: center;
+}
+.profileMain > .userImage > img {
+  height: 98%;
+  width: 98%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profileMain > .userdata {
+  width: 70%;
+}
+.profileMain > .userdata > .name,
+.profileMain > .userdata > .phone,
+.profileMain > .userdata > .email {
+  width: 80%;
+  background: var(--section-color);
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  border-radius: 7px;
+  border-bottom: 4px solid var(--main-background);
+  margin: 0 auto;
+}
+.profileMain > .userdata > .title {
+  width: 80%;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  margin-top: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+.profileMain > div > div {
+  color: var(--theme-color);
+}
+
+.profileMain > a {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--font-color);
+  padding: 0.7rem;
+  margin: 1rem;
+  background: var(--theme-color);
+  box-shadow: 0 0 10px 0px var(--theme-color);
+}
+.profileMain > a:active {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.editProfileCover {
+  background: var(--section-color);
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editProfileMain {
+  height: 80%;
+  width: 65%;
+  border-radius: 1rem;
+  padding: 2rem;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editProfileMain > form {
+  width: 80%;
+}
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
+.editProfileMain > form > div > input {
+  border: none;
+  background: var(--section-color);
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  width: 80%;
+  border-radius: 7px;
+  margin-bottom: 0.2rem;
+  box-shadow: 0 0 5px 0px var(--theme-color);
+}
+.editProfileMain > form > div > input:focus {
+  border: 2px solid var(--theme-color);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.editProfileMain > form > div > .profileInput {
+  display: none;
+}
+.editProfileMain > form > div > .imageInserter {
+  position: relative;
+  background: var(--section-color);
+  height: 9rem;
+  width: 9rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 1.5rem 0;
+  box-shadow: 0 0 5px 0px var(--theme-color);
+}
+.editProfileMain > form > div > .imageInserter:active {
+  box-shadow: none;
+}
+.editProfileMain > form > div > .imageInserter > i {
+  font-size: 5rem;
+  color: var(--main-background);
+}
+.editProfileMain > form > div > .imageInserter > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+}
+
+.editProfileMain > form > .phoneNumber > .phoneViewer {
+  width: 80%;
+  background: var(--section-color);
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  border-radius: 7px;
+  border-bottom: 4px solid var(--main-background);
+}
+
+.searchPageMain {
+  background: var(--section-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.searchPageMain > .searchInputs {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInputs > .serachText {
+  font-size: 1.2rem;
+  width: 50%;
+  border: none;
+  background: var(--theme-color);
+  color: var(--font-color);
+  padding: 0.3rem;
+  margin: 1rem;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 0 var(--theme-color);
+}
+.searchText:active {
+  box-shadow: none;
+}
+.searchInputs > .searchButton {
+  margin: 1rem;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 7px;
+  background: var(--theme-color);
+  color: var(--font-color);
+  font-weight: 700;
+  box-shadow: 0 0 5px 0 var(--theme-color);
+}
+.searchButton:active {
+  box-shadow: none;
+}
+
+.roomsContainer {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 17%;
+}
+
+.roomElementMain {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--section-color);
+  width: 100%;
+  gap: 1rem;
+  border-radius: 1rem;
+  height: 18rem;
+  padding: 2rem 0;
+  z-index: 1;
+}
+.roomsContainer > .roomElementMain {
+  margin: 1rem 0;
+  box-shadow: 0 0 5px 0 var(--theme-color);
+}
+.roomImages {
+  position: relative;
+  width: 43%;
+  height: calc(15rem + 15px);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+  /* overflow-y: hidden; */
+  place-items: center;
+  scroll-snap-type: x mandatory;
+  margin: 0 1rem;
+}
+.roomImages::-webkit-scrollbar {
+  height: 3px; /* Set the width of the scrollbar */
+}
+.roomImages::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Color of the scrollbar track */
+}
+.roomImages::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color); /* Color of the scrollbar handle */
+}
+.roomImages > .roomImage {
+  height: 13rem;
+  width: 13rem;
+  margin: 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 0 var(--theme-color);
+  scroll-snap-align: center;
+}
+.roomImages > .roomImage > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+}
+
+.roomData {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+.roomData > div > .title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.roomData > .address {
+  overflow-y: scroll;
+}
+.address::-webkit-scrollbar {
+  height: 3px;
+  width: 3px; /* Set the width of the scrollbar */
+}
+.address::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Color of the scrollbar track */
+}
+.address::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color); /* Color of the scrollbar handle */
+}
+.roomData > .amenities {
+  overflow-y: scroll;
+}
+.amenities::-webkit-scrollbar {
+  height: 3px;
+  width: 3px; /* Set the width of the scrollbar */
+}
+.amenities::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Color of the scrollbar track */
+}
+.amenities::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color); /* Color of the scrollbar handle */
+}
+
+.roomData > * {
+  color: var(--theme-color);
+}
+
+.noRoomsFound {
+  height: 60vh;
+  width: 80%;
+  background: var(--section-color);
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--theme-color);
+  box-shadow: 0 0 5px 3px var(--theme-color);
+  padding: 0 3rem;
+}
+
+.bookingsCover {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 17%;
+}
+
+.bookingsMain {
+  border-radius: 1rem;
+  position: relative;
+}
+.bookingsMain > .bookedRoom {
+  margin-bottom: 6rem;
+  position: relative;
+}
+.cancelRoom,
+.removeRoom {
+  height: 4rem;
+  width: 100%;
+  background-color: var(--theme-color);
+  position: absolute;
+  bottom: -3rem;
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--font-color);
+}
+.cancelRoom > button,
+.removeRoom > button {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0 0 1rem 1rem;
+  border: none;
+  font-size: 2rem;
+  color: var(--font-color);
+  background: var(--theme-color);
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.roomAdsCover {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 17%;
+}
+.roomAdsMain {
+  border-radius: 1rem;
+  position: relative;
+}
+
+.roomAdsMain > .roomAd {
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.addRoomCover {
+  background: var(--section-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addRoomMain {
+  width: 65%;
+  padding: 2rem;
+  background: var(--contrast-background);
+  margin: 5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px 0 var(--theme-color);
+}
+.addRoomMain > .title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--theme-color);
+  margin-bottom:1rem;
+}
+
+.addRoomMain >form > div > input {
+  border: none;
+  background: var(--section-color);
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  width: 80%;
+  border-radius: 7px;
+  margin-bottom: 0.2rem;
+  box-shadow: 0 0 5px 0px var(--theme-color);
+}
+.editProfileMain > form > div > input:focus {
+  border: 2px solid var(--theme-color);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.addNewRoomSubmit{
+  border:none;
+  background:var(--theme-color);
+  color:var(--font-color);
+  font-size:1.5rem;
+  padding:.5rem 1.5rem;
+  border-radius:7px;
+  margin:1rem auto;
+}
+
+.bookRoomMain{
+  height:60vh;
+  width:60%;
+  margin:3rem auto;
+  background:var(--section-color);
+  border-radius:1rem;
+  box-shadow:0 0 10px 0 var(--theme-color);
+  padding:5rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;  
+  font-size:2rem;
+  font-weight:700;
+  color:var(--theme-color);
+}
+
+.bookRoomMain > button{
+  border:none;
+  background:var(--theme-color);
+  color:var(--font-color);
+  font-size: 1.5rem;
+  padding:0.5rem 2rem;
+  border-radius:10px;
+  margin:2rem;
+  box-shadow:0 0 5px 0 var(--theme-color);
+}
+.bookRoomMain > button:active{
+  box-shadow:none
+}
